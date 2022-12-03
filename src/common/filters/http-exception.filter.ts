@@ -19,7 +19,7 @@ export class HttpExceptionFilter<T extends HttpException>
       typeof response === 'string'
         ? { message: exceptionResponse }
         : { exceptionResponse };
-    response.status(status).json({
+    response.status(status).send({
       ...error,
       timeStamp: new Date().toISOString(),
     });
